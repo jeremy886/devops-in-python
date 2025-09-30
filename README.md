@@ -19,3 +19,13 @@
 ## Artifacts 
 
 - pyproject.toml
+
+# Todo
+
+- [ ] code
+- [ ] github actions workflow
+- [ ] linting and format checks
+- [ ] typing and security checks
+- [ ] test automation
+- [ ] build project
+- [ ] publish project
