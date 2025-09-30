@@ -18,3 +18,8 @@ check-urls = "simple_http_checker.cli:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/simple_http_checker"]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.13.2",
+]

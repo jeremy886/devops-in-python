@@ -5,9 +5,7 @@ from typing import Collection
 logger = logging.getLogger(__name__)
 
 
-def check_urls(
-    urls: Collection[str], timeout: int = 5
-) -> dict[str, str]:
+def check_urls(urls: Collection[str], timeout: int = 5) -> dict[str, str]:
     """
     Checks a list of URLs and returns their status.
 
@@ -19,9 +17,7 @@ def check_urls(
         A dictionary mapping each URL to its status string.
     """
 
-    logger.info(
-        f"Starting check for {len(urls)} URLs with a timeout of {timeout}"
-    )
+    logger.info(f"Starting check for {len(urls)} URLs with a timeout of {timeout}")
     results: dict[str, str] = {}
 
     for url in urls:
@@ -34,9 +30,7 @@ def check_urls(
             if response.ok:
                 status = f"{response.status_code} OK"
             else:
-                status = (
-                    f"{response.status_code} {response.reason}"
-                )
+                status = f"{response.status_code} {response.reason}"
         except requests.exceptions.Timeout:
             status = "TIMEOUT"
             logger.warning(f"Request to {url} timed out.")
