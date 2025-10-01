@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
     help="Timeout in seconds for each request.",
 )
 @click.option("--verbose", "-v", is_flag=True, help="Enable debug logging.")
-def main(urls: Collection[str], timeout: int, verbose: bool):
+def main(urls: Collection[str], timeout: int, verbose: bool) -> None:
     if verbose:
         logging.getLogger().setLevel(logging.DEBUG)
         logger.debug("Verbose logging enabled.")
@@ -37,7 +37,7 @@ def main(urls: Collection[str], timeout: int, verbose: bool):
 
     logger.info(f"Starting check for {len(urls)} URLs.")
 
-    results = check_urls(urls, timeout)
+    results: dict[str, str] = check_urls(urls, timeout)
 
     click.echo("\n--- Results ---")
     for url, status in results.items():

@@ -21,11 +21,11 @@ def check_urls(urls: Collection[str], timeout: int = 5) -> dict[str, str]:
     results: dict[str, str] = {}
 
     for url in urls:
-        status = "UNKNOWN"
+        status: str = "UNKNOWN"
 
         try:
             logger.debug(f"Checking URL: {url}")
-            response = requests.get(url, timeout=timeout)
+            response: requests.Response = requests.get(url, timeout=timeout)
 
             if response.ok:
                 status = f"{response.status_code} OK"
