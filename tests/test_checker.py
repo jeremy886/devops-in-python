@@ -1,6 +1,7 @@
 import pytest
 from simple_http_checker.checker import check_urls
 
+
 @pytest.mark.parametrize(
     "url, expected_prefix",
     [
@@ -11,6 +12,7 @@ from simple_http_checker.checker import check_urls
 def test_check_urls_status_codes(url, expected_prefix):
     res = check_urls([url])
     assert res[url].startswith(expected_prefix)
+
 
 def test_check_urls_timeout():
     slow = "https://httpbin.org/delay/3"
