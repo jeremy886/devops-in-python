@@ -48,3 +48,7 @@ jobs:
       - name: Run bandit security scan
         run: |
           uv run bandit -r src/
+
+      - name: Run pytest
+        run: |
+          uv run pytest -v
